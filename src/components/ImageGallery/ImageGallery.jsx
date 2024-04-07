@@ -1,13 +1,14 @@
+import css from "./ImageGallery.module.css";
 import ImageCard from "../ImageCard/ImageCard";
 
-const ImageGallery = ({ products }) => {
+const ImageGallery = ({ products, openModal }) => {
   return (
-    <ul>
+    <ul className={css.gallery}>
       {Array.isArray(products) &&
         products.map((product) => {
           return (
-            <li key={product.id}>
-              <ImageCard product={product} />
+            <li className={css.galleryCard} key={product.id}>
+              <ImageCard product={product} openModal={openModal} />
             </li>
           );
         })}

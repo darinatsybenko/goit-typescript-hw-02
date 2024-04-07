@@ -1,3 +1,4 @@
+import css from "./SearchBar.module.css";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 const SearchBar = ({ onSetSearchQuery }) => {
@@ -17,9 +18,10 @@ const SearchBar = ({ onSetSearchQuery }) => {
   };
   return (
     <div>
-      <header>
+      <header className={css.header}>
         <form onSubmit={handleSubmit}>
           <input
+            className={css.input}
             id="search"
             type="text"
             autoComplete="off"
@@ -28,7 +30,9 @@ const SearchBar = ({ onSetSearchQuery }) => {
             value={search}
             onChange={handleChange}
           />
-          <button type="submit">Search</button>
+          <button className={css.button} type="submit">
+            Search
+          </button>
         </form>
         <Toaster />
       </header>

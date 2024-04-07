@@ -1,8 +1,15 @@
-const LoadMoreBtn = () => {
+import css from "./LoadMoreBtn.module.css";
+const LoadMoreBtn = ({ loadMoreImg }) => {
   return (
-    <div>
-      <button></button>
-    </div>
+    <button
+      className={css.loadMoreBtn}
+      type="button"
+      onClick={() => {
+        loadMoreImg();
+      }}
+    >
+      Load More
+    </button>
   );
 };
 
