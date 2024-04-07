@@ -54,7 +54,7 @@ function App() {
       {isLoading && <Loader />}
       {isError && <ErrorMessage error={Error} />}
       <ImageGallery products={products} openModal={openModal} />
-      <Loader />
+
       {Array.isArray(products) && products.length > 0 && (
         <LoadMoreBtn loadMoreImg={loadMoreImg} />
       )}
