@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     async function fetchProducts() {
-      if (query !== "") return;
+      if (!query) return;
       try {
         setIsLoading(true);
         const image = await requestProducts(query, page);
