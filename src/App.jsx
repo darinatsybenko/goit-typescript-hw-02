@@ -19,21 +19,25 @@ function App() {
 
   useEffect(() => {
     async function fetchProducts() {
+      if (query !== "") return;
       try {
         setIsLoading(true);
         const image = await requestProducts(query, page);
         console.log("image", image);
-        setProducts(image);
+        setProducts((prevImages) => [...prevImages, ...image]);
       } catch (error) {
         setIsError(true);
       } finally {
         setIsLoading(false);
       }
     }
+
     fetchProducts();
   }, [query, page]);
 
   const onSetSearchQuery = (searchTerm) => {
+    setPage(1);
+    setProducts([]);
     setQuery(searchTerm);
   };
 
