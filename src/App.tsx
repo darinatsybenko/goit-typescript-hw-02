@@ -10,11 +10,11 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 
 function App() {
   const [products, setProducts] = useState(null);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [modalIsOpen, setmodalIsOpen] = useState(false);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
   const [modalData, setModalData] = useState(null);
 
   useEffect(() => {
