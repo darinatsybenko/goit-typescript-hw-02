@@ -7,15 +7,16 @@ import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import ImageModal from "./components/ImageModal/ImageModal";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
+import { Images } from "./components/types";
 
 function App() {
-  const [products, setProducts] = useState(null);
-  const [query, setQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [modalIsOpen, setmodalIsOpen] = useState(false);
-  const [page, setPage] = useState(1);
-  const [modalData, setModalData] = useState(null);
+  const [products, setProducts] = useState<Images | null>(null);
+  const [query, setQuery] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [modalIsOpen, setmodalIsOpen] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [modalData, setModalData] = useState<Images | null>(null);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -35,21 +36,21 @@ function App() {
     fetchProducts();
   }, [query, page]);
 
-  const onSetSearchQuery = (searchTerm) => {
+  const onSetSearchQuery = (searchTerm: string): void => {
     setPage(1);
     setProducts([]);
     setQuery(searchTerm);
   };
 
-  function openModal(modalData) {
+  function openModal(modalData: string): void {
     setmodalIsOpen(true);
     setModalData(modalData);
   }
-  function closeModal() {
+  function closeModal(): void {
     setmodalIsOpen(false);
   }
 
-  const loadMoreImg = () => {
+  const loadMoreImg = (): void => {
     setPage(page + 1);
   };
   return (
