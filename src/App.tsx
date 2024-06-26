@@ -10,7 +10,7 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import { Images } from "./components/types";
 
 function App() {
-  const [products, setProducts] = useState<Images | null>(null);
+  const [products, setProducts] = useState<Images[] | null>([]);
   const [query, setQuery] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
@@ -60,9 +60,7 @@ function App() {
       {isError && <ErrorMessage error={Error} />}
       <ImageGallery products={products} openModal={openModal} />
 
-      {Array.isArray(products) && products.length > 0 && (
-        <LoadMoreBtn loadMoreImg={loadMoreImg} />
-      )}
+      {products.length > 0 && <LoadMoreBtn loadMoreImg={loadMoreImg} />}
       {modalIsOpen && (
         <ImageModal
           isOpen={modalIsOpen}
