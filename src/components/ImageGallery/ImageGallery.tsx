@@ -1,7 +1,14 @@
 import css from "./ImageGallery.module.css";
 import ImageCard from "../ImageCard/ImageCard";
+import { Images } from "../types";
+import { FC } from "react";
 
-const ImageGallery = ({ products, openModal }) => {
+interface ImageGalleryProps {
+  products: Images[];
+  openModal: (id: string) => void;
+}
+
+const ImageGallery: FC<ImageGalleryProps> = ({ products, openModal }) => {
   return (
     <ul className={css.gallery}>
       {Array.isArray(products) &&

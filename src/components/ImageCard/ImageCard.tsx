@@ -1,6 +1,20 @@
+import { FC } from "react";
+import { Images, User } from "../types";
 import css from "./ImageCard.module.css";
-const ImageCard = ({ product, openModal }) => {
-  const cardInfo = {
+
+interface ImageCardProps {
+  product: Images;
+  openModal: (id: string) => void;
+}
+interface CardInfo {
+  src: string;
+  altDescription: string;
+  description: string;
+  autor: string;
+  likes: number;
+}
+const ImageCard: FC<ImageCardProps> = ({ product, openModal }) => {
+  const cardInfo: CardInfo = {
     src: product.urls.regular,
     altDescription: product.alt_description,
     description: product.description,

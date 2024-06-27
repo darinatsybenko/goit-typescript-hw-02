@@ -42,7 +42,7 @@ function App() {
     setQuery(searchTerm);
   };
 
-  function openModal(modalData: string): void {
+  function openModal(modalData: Images): void {
     setmodalIsOpen(true);
     setModalData(modalData);
   }
@@ -60,7 +60,9 @@ function App() {
       {isError && <ErrorMessage error={Error} />}
       <ImageGallery products={products} openModal={openModal} />
 
-      {products.length > 0 && <LoadMoreBtn loadMoreImg={loadMoreImg} />}
+      {products && products.length > 0 && (
+        <LoadMoreBtn loadMoreImg={loadMoreImg} />
+      )}
       {modalIsOpen && (
         <ImageModal
           isOpen={modalIsOpen}
