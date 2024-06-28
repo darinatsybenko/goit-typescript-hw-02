@@ -9,10 +9,8 @@ axios.defaults.params = {
 };
 
 interface UnsplashResponse {
-  results: [Images];
+  results: Images[];
   total_pages: number;
-  // results: ;
-  data: string;
 }
 export const requestProducts = async (
   query: string,

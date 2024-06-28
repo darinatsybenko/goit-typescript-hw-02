@@ -1,5 +1,8 @@
 import css from "./LoadMoreBtn.module.css";
-const LoadMoreBtn = ({ loadMoreImg }) => {
+interface LoadMoreBtnProps {
+  loadMoreImg: () => void;
+}
+const LoadMoreBtn = ({ loadMoreImg }: LoadMoreBtnProps) => {
   return (
     <button
       className={css.loadMoreBtn}

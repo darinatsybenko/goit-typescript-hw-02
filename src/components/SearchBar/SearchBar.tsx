@@ -1,14 +1,18 @@
 import css from "./SearchBar.module.css";
-import { useState } from "react";
+import { FC, useState, FormEvent } from "react";
 import toast, { Toaster } from "react-hot-toast";
-const SearchBar = ({ onSetSearchQuery }) => {
-  const [search, setSearch] = useState("");
+
+interface SearchBarProps {
+  onSetSearchQuery: (searchQuery: string) => void;
+}
+const SearchBar: FC<SearchBarProps> = ({ onSetSearchQuery }) => {
+  const [search, setSearch] = useState<string>("");
   const notify = () => toast("Please enter the search criteria");
-  const handleChange = (event) => {
-    setSearch(event.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (!search) {
       notify();
       return;

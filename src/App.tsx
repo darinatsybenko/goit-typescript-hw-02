@@ -10,7 +10,7 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import { Images } from "./components/types";
 
 function App() {
-  const [products, setProducts] = useState<Images[] | null>([]);
+  const [products, setProducts] = useState<Images[]>([]);
   const [query, setQuery] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
@@ -25,7 +25,7 @@ function App() {
         setIsLoading(true);
         const image = await requestProducts(query, page);
         console.log("image", image);
-        setProducts((prevImages) => [...prevImages, ...image]);
+        setProducts((prevImages) => [...prevImages, ...image.results]);
       } catch (error) {
         setIsError(true);
       } finally {

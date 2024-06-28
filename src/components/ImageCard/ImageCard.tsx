@@ -1,33 +1,20 @@
 import { FC } from "react";
-import { Images, User } from "../types";
+import { Images } from "../types";
 import css from "./ImageCard.module.css";
 
 interface ImageCardProps {
   product: Images;
-  openModal: (id: string) => void;
+  openModal: (id: Images) => void;
 }
-interface CardInfo {
-  src: string;
-  altDescription: string;
-  description: string;
-  autor: string;
-  likes: number;
-}
+
 const ImageCard: FC<ImageCardProps> = ({ product, openModal }) => {
-  const cardInfo: CardInfo = {
-    src: product.urls.regular,
-    altDescription: product.alt_description,
-    description: product.description,
-    autor: product.user.name,
-    likes: product.likes,
-  };
   return (
     <div>
       <img
         className={css.image}
         src={product.urls.small}
         alt={product.alt_description}
-        onClick={() => openModal(cardInfo)}
+        onClick={() => openModal(product)}
       />
       <p className={css.imageInfo}>
         Author: <span>{product.user.name}</span>
