@@ -4,7 +4,7 @@ import css from "./ImageCard.module.css";
 
 interface ImageCardProps {
   product: Images;
-  openModal: (id: Images) => void;
+  openModal: (image: Images) => void;
 }
 
 const ImageCard: FC<ImageCardProps> = ({ product, openModal }) => {

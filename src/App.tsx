@@ -42,9 +42,9 @@ function App() {
     setQuery(searchTerm);
   };
 
-  function openModal(modalData: Images): void {
+  function openModal(image: Images): void {
     setmodalIsOpen(true);
-    setModalData(modalData);
+    setModalData(image);
   }
   function closeModal(): void {
     setmodalIsOpen(false);
@@ -57,7 +57,7 @@ function App() {
     <>
       <SearchBar onSetSearchQuery={onSetSearchQuery} />
       {isLoading && <Loader />}
-      {isError && <ErrorMessage error={Error} />}
+      {isError && <ErrorMessage error={isError} />}
       <ImageGallery products={products} openModal={openModal} />
 
       {products && products.length > 0 && (

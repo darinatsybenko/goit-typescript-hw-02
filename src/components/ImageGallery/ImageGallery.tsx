@@ -5,7 +5,7 @@ import { FC } from "react";
 
 interface ImageGalleryProps {
   products: Images[];
-  openModal: (id: string) => void;
+  openModal: (image: Images) => void;
 }
 
 const ImageGallery: FC<ImageGalleryProps> = ({ products, openModal }) => {
